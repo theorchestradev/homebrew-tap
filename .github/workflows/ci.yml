@@ -1,0 +1,21 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  audit:
+    runs-on: macos-15
+    steps:
+      - uses: actions/checkout@v4
+      - name: Tap this checkout
+        run: |
+          tap="$(brew --repository)/Library/Taps/theorchestradev/homebrew-tap"
+          mkdir -p "$(dirname "$tap")"
+          rm -rf "$tap"
+          ln -s "$GITHUB_WORKSPACE" "$tap"
+          brew trust theorchestradev/tap
+      - run: brew style theorchestradev/tap
+      - run: brew audit --cask --strict --online theorchestradev/tap/orchestra
