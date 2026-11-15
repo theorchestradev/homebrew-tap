@@ -1,6 +1,6 @@
 cask "orchestra" do
-  version "0.30.0"
-  sha256 "a05c0d569ea35a4d89f18bc63ef97025ae73b2c1e71e03d2b7cf44b6e940de4c"
+  version "0.30.1"
+  sha256 "6536dc1208441886cabfddaa639bbadc79fa7a6c64ae8b0ef608919cd478534e"
 
   url "https://github.com/theorchestradev/orchestra/releases/download/v#{version}/Orchestra-#{version}-macos-universal.dmg"
   name "Orchestra"
